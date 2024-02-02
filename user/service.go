@@ -33,6 +33,16 @@ func NewService(db *sql.DB, r Repository, v *validator.Validate) Service {
 func (s *service) RegisterUser(ctx context.Context, input RegisterUser) (User, error) {
 	var userregister User
 
+	tx, err := s.db.Begin()
+
+	helper.PanicIfError(err, " erro in create tx service user register")
+
+	// _, err = s.repo.FindByEmail(ctx, tx, input.Email)
+	// if err == nil {
+	// 	err = errors.New("email already registerd")
+	// 	helper.PanicIfError(err, "error in find user by email register user service")
+	// }
+
 	userregister.Name = strings.TrimSpace(input.Name)
 	userregister.Role = "user"
 	userregister.Occupation = strings.TrimSpace(input.Occupation)
@@ -41,8 +51,6 @@ func (s *service) RegisterUser(ctx context.Context, input RegisterUser) (User, e
 	helper.PanicIfError(err, "error in create hash password register user service")
 	userregister.PasswordHash = string(bytes)
 	fmt.Println(string(bytes))
-	tx, err := s.db.Begin()
-	helper.PanicIfError(err, " erro in create tx service user register")
 	defer helper.CommitOrRollback(tx)
 	user, err := s.repo.Save(ctx, tx, userregister)
 	helper.PanicIfError(err, " error in cave user in register user service")
