@@ -1,0 +1,1 @@
+drop Table if EXISTS campaigns;
