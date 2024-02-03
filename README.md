@@ -20,6 +20,6 @@ go install -tags 'postgres,mysql,mongodb' github.com/golang-migrate/migrate/v4/c
 - for create migration file
 migrate  create -ext sql -dir db/migrations create_table_users
 - for upgrade
-migrate -database "postgresql://postgres:a1@localhost:5432/bwastartup" -dir db/migrations up
+migrate -database "postgresql://postgres:a1@localhost:5432/bwastartup" -path db/migrations up
 - for downgrade
-migrate -database "postgresql://postgres:a1@localhost:5432/bwastartup" -dir db/migrations down
+migrate -database "postgresql://postgres:a1@localhost:5432/bwastartup" -path db/migrations down

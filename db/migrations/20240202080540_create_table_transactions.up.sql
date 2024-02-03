@@ -1,3 +1,3 @@
 create table transactions (
-    id integer primary key generated always as identity, name varchar(50) NOT NULl, amount INTEGER DEFAULT 0, status VARCHAR(20), code VARCHAR(100), payment_url VARCHAR(100), campaign_id integer, user_id integer, created_at TIMESTAMP default Now(), updated_at TIMESTAMP DEFAULT now(), CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users (id), CONSTRAINT fk_campaign FOREIGN KEY (campaign_id) REFERENCES campaigns (id)
+    id integer primary key generated always as identity, amount INTEGER DEFAULT 0, status VARCHAR(20), code VARCHAR(100), payment_url VARCHAR(100), campaign_id integer, user_id integer, created_at TIMESTAMP default Now(), updated_at TIMESTAMP DEFAULT now(), CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users (id), CONSTRAINT fk_campaign FOREIGN KEY (campaign_id) REFERENCES campaigns (id)
 );
