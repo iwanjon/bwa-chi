@@ -1,0 +1,597 @@
+{
+	"info": {
+		"_postman_id": "6c6d796b-f70f-4d10-a4f7-e3316c0e9086",
+		"name": "bwa-chi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16782697"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "registerUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"koko\",\n    \"occupation\":\"kikiw\",\n    \"password\":\"pass\",\n    \"email\":\"imel@ime2l.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "static",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"koko\",\n    \"occupation\":\"kikiw\",\n    \"password\":\"pass\",\n    \"email\":\"imel@ime2l.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/static/19-imageRiliv.png",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"static",
+								"19-imageRiliv.png"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"Authorization\", jsonData.data.token);",
+									"// console.log(jsonData);",
+									"// pm.test(\"Schema is valid\", function () {",
+									"//   var schema = {",
+									"//     type: \"object\",",
+									"//     properties: {",
+									"//       meta: {",
+									"//         type: \"object\",",
+									"//         properties: {",
+									"//           message: { type: \"string\" },",
+									"//           code: { type: \"number\" },",
+									"//           status: { type: \"string\" }",
+									"//         },",
+									"//         required: [\"message\", \"code\", \"status\"]",
+									"//       },",
+									"//       data: {",
+									"//         type: \"object\",",
+									"//         properties: {",
+									"//           id: { type: \"number\" },",
+									"//           name: { type: \"string\" },",
+									"//           occupation: { type: \"string\" },",
+									"//           email: { type: \"string\", format: \"email\" },",
+									"//           token: { type: \"string\" },",
+									"//           image_url: { type: \"string\", format: \"uri\" }",
+									"//         },",
+									"//         required: [\"id\", \"name\", \"occupation\", \"email\", \"token\", \"image_url\"]",
+									"//       }",
+									"//     },",
+									"//     required: [\"meta\", \"data\"]",
+									"//   };",
+									"",
+									"//   var response = pm.response.json();",
+									"//   pm.expect(tv4.validate(response, schema)).to.be.true;",
+									"// });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\":\"pass\",\n    \"email\":\"imel@imel.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "emailChecker",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\":\"pass\",\n    \"email\":\"imel@imeel.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/email_checkers",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"email_checkers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/user/fetch",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"fetch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadAvatar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDY5NTU2NDMsImp0aSI6IjEifQ.57PtY9paDEwWfw-ytMBnCtKg6-WriHjCLgAoh6hDbVo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/lenovo/Pictures/Screenshots/Screenshot from 2024-01-24 15-50-23.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/avatars",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"avatars"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "campaign",
+			"item": [
+				{
+					"name": "createCampaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"campaign n\",\n    \"short_description\":\"campaign 1\",\n    \"desc\":\"pass pass pass\",\n    \"goal_amount\": 10000000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/campaigns",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"campaigns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCampaign",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"campaign n\",\n    \"short_description\":\"campaign 1\",\n    \"desc\":\"pass pass pass\",\n    \"goal_amount\": 10000000,\n    \"perks\":\"io\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/campaigns/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadCampginImages",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/lenovo/Pictures/Screenshots/mr.png"
+								},
+								{
+									"key": "campaign_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "is_primary",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/campaign-images",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"campaign-images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCampaign",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"campaign n\",\n    \"short_description\":\"campaign 1\",\n    \"description\":\"pass pass pass\",\n    \"goal_amount\": 10000000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/campaigns/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"campaigns",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCampaigns",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"campaign n\",\n    \"short_description\":\"campaign 1\",\n    \"description\":\"pass pass pass\",\n    \"goal_amount\": 10000000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/campaigns",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"campaigns"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transaction",
+			"item": []
+		},
+		{
+			"name": "createTransaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"amount\":1000,\n\"campaign_id\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "notfTransaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"transaction_status\": \"deny\",\n   \"order_id\":  \"6\" ,\n \"payment_type\": \"bb\" ,\n  \"fraud_status\": \"0\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/transactions/notification",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"transactions",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCampaignTransaction",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"amount\":1000,\n\"campaign_id\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/campaigns/1/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"campaigns",
+						"1",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserTransactions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"amount\":1000,\n\"campaign_id\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

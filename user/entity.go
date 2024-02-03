@@ -18,6 +18,7 @@ type User struct {
 	UpdatedAt      time.Time
 }
 
-// migrate -database "postgresql://postgres:a@localhost:5432/bwastartup" -dir db/migrations up
-// migrate -database "postgresql://postgres:a@localhost:5432/bwastartup" -dir db/migrations down
+//go install -tags 'postgres,mysql,mongodb' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 // migrate  create -ext sql -dir db/migrations create_table_users
+// migrate -database "postgresql://postgres:a1@localhost:5432/bwastartup" -dir db/migrations up
+// migrate -database "postgresql://postgres:a1@localhost:5432/bwastartup" -dir db/migrations down
