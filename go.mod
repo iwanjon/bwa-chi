@@ -7,6 +7,8 @@ require (
 	github.com/lib/pq v1.10.6
 )
 
+require github.com/joho/godotenv v1.5.1 // indirect
+
 require (
 	github.com/go-chi/chi v1.5.4
 	github.com/go-playground/locales v0.14.0 // indirect

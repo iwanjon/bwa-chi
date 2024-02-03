@@ -5,8 +5,11 @@ import (
 	"bwastartupgochi/user"
 	"errors"
 	"fmt"
+	"log"
+	"os"
 	"strconv"
 
+	"github.com/joho/godotenv"
 	"github.com/midtrans/midtrans-go"
 	"github.com/midtrans/midtrans-go/snap"
 )
@@ -23,8 +26,14 @@ func NewPaymentService() *service {
 }
 
 func (s *service) GetPaymentUrl(transaction Transaction, user user.User) (string, error) {
+	err := godotenv.Load(".env")
 
-	ServerKey := "kingkong"
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
+
+	ServerKey := os.Getenv("ServerKey")
+	// ServerKey := "kingkong"
 	Environment := midtrans.Sandbox
 
 	//Initiate client for Midtrans Snap
