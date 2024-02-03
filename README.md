@@ -2,7 +2,7 @@
 
 ## Campaign Donation
 _to run this project midtrans account is needded and save the apikey in .env locate next to main.go file_
-_this project based on BWA Course, rewrite using golang chi-router_
+_this project based on BWA Course (API ONLY), rewrite using golang chi-router_
 _another version like gin, echo can be found in other repo with prefix name bwa (for this momemt)_
 
 1. run go mod tidy
