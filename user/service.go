@@ -34,7 +34,7 @@ func (s *service) RegisterUser(ctx context.Context, input RegisterUser) (User, e
 	var userregister User
 
 	tx, err := s.db.Begin()
-
+	defer helper.CommitOrRollback(tx)
 	helper.PanicIfError(err, " erro in create tx service user register")
 
 	// _, err = s.repo.FindByEmail(ctx, tx, input.Email)
@@ -51,7 +51,6 @@ func (s *service) RegisterUser(ctx context.Context, input RegisterUser) (User, e
 	helper.PanicIfError(err, "error in create hash password register user service")
 	userregister.PasswordHash = string(bytes)
 	fmt.Println(string(bytes))
-	defer helper.CommitOrRollback(tx)
 	user, err := s.repo.Save(ctx, tx, userregister)
 	helper.PanicIfError(err, " error in cave user in register user service")
 

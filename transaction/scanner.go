@@ -5,14 +5,14 @@ import "database/sql"
 func TransactionScanner(r *sql.Row, t *Transaction) error {
 	err := r.Scan(
 		&t.ID,
-		&t.CampaignID,
-		&t.UserID,
 		&t.Amount,
 		&t.Status,
 		&t.Code,
+		&t.PaymentURL,
+		&t.CampaignID,
+		&t.UserID,
 		&t.CreatedAt,
 		&t.UpdatedAt,
-		&t.PaymentURL,
 	)
 	return err
 }
@@ -20,14 +20,14 @@ func TransactionScanner(r *sql.Row, t *Transaction) error {
 func TransactionScanners(r *sql.Rows, t *Transaction) error {
 	err := r.Scan(
 		&t.ID,
-		&t.CampaignID,
-		&t.UserID,
 		&t.Amount,
 		&t.Status,
 		&t.Code,
+		&t.PaymentURL,
+		&t.CampaignID,
+		&t.UserID,
 		&t.CreatedAt,
 		&t.UpdatedAt,
-		&t.PaymentURL,
 	)
 	return err
 }

@@ -120,6 +120,7 @@ func (h *userHandler) UploadAvatar(w http.ResponseWriter, r *http.Request) {
 func (h *userHandler) FetchUser(w http.ResponseWriter, r *http.Request) {
 	// id := 2
 	struct_ctx_intf := r.Context().Value(mid.Contectkey)
+	fmt.Println(struct_ctx_intf, "kokok")
 	struct_context, ok := struct_ctx_intf.(mid.StructUser)
 	if !ok {
 		helper.PanicIfError(errors.New("eror conver to struct context"), "error convert context val to struct")

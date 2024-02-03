@@ -54,6 +54,7 @@ func (s *service) GetTransactionByUserID(ctx context.Context, UserID int) ([]Tra
 
 func (s *service) CreateTransaction(ctx context.Context, input CreateTransactionInput) (Transaction, error) {
 	var tran Transaction
+	fmt.Println(input, "kikp")
 	tran.Amount = input.Amount
 	tran.CampaignID = input.CampaignID
 	tran.UserID = input.User.ID

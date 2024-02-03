@@ -6,7 +6,6 @@ func CampaignScanner(r *sql.Row, c *Campaign) error {
 
 	err := r.Scan(
 		&c.ID,
-		&c.UserID,
 		&c.Name,
 		&c.ShortDescription,
 		&c.Description,
@@ -15,6 +14,7 @@ func CampaignScanner(r *sql.Row, c *Campaign) error {
 		&c.GoalAmount,
 		&c.CurrentAmount,
 		&c.Slug,
+		&c.UserID,
 		&c.CreatedAt,
 		&c.UpdatedAt,
 	)
@@ -38,7 +38,6 @@ func CampaignScanners(r *sql.Rows, c *Campaign) error {
 
 	err := r.Scan(
 		&c.ID,
-		&c.UserID,
 		&c.Name,
 		&c.ShortDescription,
 		&c.Description,
@@ -47,6 +46,7 @@ func CampaignScanners(r *sql.Rows, c *Campaign) error {
 		&c.GoalAmount,
 		&c.CurrentAmount,
 		&c.Slug,
+		&c.UserID,
 		&c.CreatedAt,
 		&c.UpdatedAt,
 	)
@@ -56,9 +56,9 @@ func CampaignScanners(r *sql.Rows, c *Campaign) error {
 func CampaignImageScanners(r *sql.Rows, c *CampaignImage) error {
 	err := r.Scan(
 		&c.ID,
-		&c.CampaignID,
 		&c.FileName,
 		&c.IsPrimary,
+		&c.CampaignID,
 		&c.CreatedAt,
 		&c.UpdatedAt,
 	)

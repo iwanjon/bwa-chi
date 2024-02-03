@@ -86,7 +86,8 @@ func NewUserHandler(r *chi.Mux, h handler.UserHandler, jwtService auth.Service, 
 	r.Post("/api/v1/email_checkers", h.CheckEmail)
 	r.Post("/api/v1/avatars", authModdleware(jwtService, userService, h.UploadAvatar))
 	// r.Post("/api/v1/avatares", h.UploadAvatar)
-	r.Post("/api/v1/user/fetch", h.FetchUser)
+	// r.Post("/api/v1/user/fetch", h.FetchUser)
+	r.Post("/api/v1/user/fetch", authModdleware(jwtService, userService, h.FetchUser))
 	return r
 }
 

@@ -24,11 +24,7 @@ func NewPaymentService() *service {
 
 func (s *service) GetPaymentUrl(transaction Transaction, user user.User) (string, error) {
 
-	// midtrans.ServerKey = "SB-Mid-server-rfoEAZy_b7QibK3ZZTM4-Jsp"
-	// midtrans.ClientKey = "SB-Mid-client-S1AvvSdTk2QBf7D9"
-	// midtrans.Environment = midtrans.Sandbox
-	ServerKey := "SB-Mid-server-rfoEAZy_b7QibK3ZZTM4-Jsp"
-	// ClientKey := "SB-Mid-client-S1AvvSdTk2QBf7D9"
+	ServerKey := "kingkong"
 	Environment := midtrans.Sandbox
 
 	//Initiate client for Midtrans Snap

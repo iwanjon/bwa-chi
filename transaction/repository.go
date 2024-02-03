@@ -6,6 +6,7 @@ import (
 	"bwastartupgochi/user"
 	"context"
 	"database/sql"
+	"fmt"
 )
 
 type repository struct {
@@ -138,6 +139,7 @@ func (r *repository) GetByTransactionId(ctx context.Context, db *sql.DB, Id int)
 	defer stet3.Close()
 
 	row := stet_1.QueryRowContext(ctx, Id)
+	fmt.Println(Id)
 	// helper.PanicIfError(err, " erroor select transaction by campaign id by userid")
 	err = TransactionScanner(row, &transaction)
 	helper.PanicIfError(err, "error inscan transaction get by campaign id by id")
