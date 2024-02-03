@@ -12,6 +12,7 @@ _another version like gin, echo can be found in other repo with prefix name bwa 
 5. install golang-migrate 
 6. run migration --> only run upgrade 
 7. run main.go file
+8. postman collection is attached next to main.go file
 
 migration example:
 - for installation 
